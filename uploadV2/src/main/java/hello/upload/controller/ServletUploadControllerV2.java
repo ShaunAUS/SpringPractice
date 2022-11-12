@@ -60,13 +60,15 @@ public class ServletUploadControllerV2 {
 
             //데이터 읽기
             //바이너리 데이터 문자열로 혹은 반대로 할때 꼭 charset넣어줘야함
-            InputStream inputStream = part.getInputStream(); String body = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);
+            InputStream inputStream = part.getInputStream(); 
+            String body = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);
             log.info("body={}", body);
 
 
             //파일에 저장하기
             if (StringUtils.hasText(part.getSubmittedFileName())) {
-                String fullPath = fileDir + part.getSubmittedFileName(); log.info("파일 저장 fullPath={}", fullPath);
+                String fullPath = fileDir + part.getSubmittedFileName(); 
+                log.info("파일 저장 fullPath={}", fullPath);
                 part.write(fullPath); //저장
             }
         }
